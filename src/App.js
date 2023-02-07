@@ -13,13 +13,15 @@ function App() {
       .then((response) => response.json())
       .then((data) => setQuestions(data.results));
   }, [])
-  console.log(questions)
 
   return (
     <div className="App">
       <h1>Trivia</h1>
       {mode === 'start' && <Start setMode={setMode} />}
-      {mode === 'quiz' && <Quiz />}
+      {mode === 'quiz' && 
+        <Quiz
+          questions={questions}
+      />}
       {mode === 'end' && <End />}
     </div>
   );

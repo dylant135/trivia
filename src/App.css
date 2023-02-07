@@ -6,3 +6,9 @@
 h1 {
   text-align: center;
 }
+
+.q {
+  width: 80vw;
+  padding: 8px;
+  margin: auto;
+}
