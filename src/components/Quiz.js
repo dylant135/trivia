@@ -8,6 +8,7 @@ export default function Quiz(props) {
             question={x.question}
             correct={x.correct_answer}
             incorrects={x.incorrect_answers}
+            setQuestions={props.setQuestions}
         />
     })
 

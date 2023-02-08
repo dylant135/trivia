@@ -21,6 +21,7 @@ function App() {
       {mode === 'quiz' && 
         <Quiz
           questions={questions}
+          setQuestions={setQuestions}
       />}
       {mode === 'end' && <End />}
     </div>

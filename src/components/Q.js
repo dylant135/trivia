@@ -3,22 +3,22 @@ import React from "react";
 export default function Q(props) {
     let answers = [
         {
-            question: props.correct,
+            answer: props.correct,
             isSelected: false,
             isCorrect: true
         },
         {
-            question: props.incorrects[0],
+            answer: props.incorrects[0],
             isSelected: false,
             isCorrect: false
         },
         {
-            question: props.incorrects[1],
+            answer: props.incorrects[1],
             isSelected: false,
             isCorrect: false
         },
         {
-            question: props.incorrects[2],
+            answer: props.incorrects[2],
             isSelected: false,
             isCorrect: false
         }
@@ -28,25 +28,26 @@ export default function Q(props) {
     const [theQ, setTheQ] = React.useState(answers)
 
     function select(event) {
-        for(let i = 0; i < 4; i++) {
-            if(theQ[i].isSelected) {
-                setTheQ(prevState => {
-                    return {
-                        ...prevState,
-                        [theQ[i].isSelected]: false
-                    }
-                })
-            }
-        }
-        const text = event.target.textContent
-        const t = theQ.filter(a => a.question === text)
-        setTheQ(prevState => {
-            return {
-                ...prevState,
-                [t[0].isSelected]: true
+
+        const makeFalse = theQ.map(it => {
+            if(it.isSelected) {
+                return {...it, isSelected: false}
+            } else {
+                return it
             }
         })
-        console.log(theQ)
+
+        const text = event.target.textContent
+        const t = theQ.filter(a => a.answer === text)
+        const newArr = makeFalse.map(it => {
+            if(it === t[0]) {
+                return {...it, isSelected: true}
+            } else {
+                return it
+            }
+        })
+        setTheQ(newArr)
+        console.log(t)
     }
     return (
         <div className="q">
@@ -54,19 +55,19 @@ export default function Q(props) {
             <h3 style={{
                 backgroundColor: theQ[0].isSelected && 'red'
               }}
-            onClick={select}>{theQ[0].question}</h3>
+            onClick={select}>{theQ[0].answer}</h3>
             <h3 style={{
                 backgroundColor: theQ[1].isSelected && 'red'
               }}
-            onClick={select}>{theQ[1].question}</h3>
+            onClick={select}>{theQ[1].answer}</h3>
             <h3 style={{
                 backgroundColor: theQ[2].isSelected && 'red'
               }}
-            onClick={select}>{theQ[2].question}</h3>
+            onClick={select}>{theQ[2].answer}</h3>
             <h3 style={{
                 backgroundColor: theQ[3].isSelected && 'red'
               }}
-            onClick={select}>{theQ[3].question}</h3>
+            onClick={select}>{theQ[3].answer}</h3>
             
         </div>
     )
