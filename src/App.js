@@ -6,6 +6,7 @@ import End from './components/End'
 
 function App() {
   const [mode, setMode] = React.useState('start')
+  const [score, setScore] = React.useState(0)
 
   const [questions, setQuestions] = React.useState()
   React.useEffect(() => {
@@ -22,8 +23,13 @@ function App() {
         <Quiz
           questions={questions}
           setMode={setMode}
+          score={score}
+          setScore={setScore}
       />}
-      {mode === 'end' && <End />}
+      {mode === 'end' && 
+        <End
+          score={score}
+      />}
     </div>
   );
 }

@@ -20,7 +20,14 @@ export default function Quiz(props) {
     })
 
     function submit() {
-        console.log(choices)
+        let theScore = 0
+        for(let i = 0; i < choices.length; i++) {
+            if(choices[i].isCorrect) {
+                theScore++
+            }
+        }
+        props.setScore(theScore)
+        props.setMode('end')
     }
 
     return (

@@ -3,8 +3,28 @@
   padding: 0;
 }
 
-h1 {
+h1, h3 {
   text-align: center;
+  margin: 7px 0;
+}
+
+.start {
+  margin: auto;
+  width: 80vw;
+  text-align: center;
+}
+
+.startbtn {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 5px;
+  background-color: #79a0da;
+  border-radius: 5px;
+}
+
+.startbtn:hover {
+  background-color: #afc6e9;
+  cursor: pointer;
 }
 
 .q {
