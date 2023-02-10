@@ -29,6 +29,7 @@ function App() {
       {mode === 'end' && 
         <End
           score={score}
+          questions={questions}
       />}
     </div>
   );

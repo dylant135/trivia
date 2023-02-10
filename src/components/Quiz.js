@@ -32,9 +32,8 @@ export default function Quiz(props) {
 
     return (
         <div className="quiz">
-            <h1>Quiz</h1>
             {theQuestions}
-            <button onClick={submit}>Submit</button>
+            <button className="submitbtn" onClick={submit}>Submit</button>
         </div>
     )
 }

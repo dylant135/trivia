@@ -1,11 +1,25 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #c9d9f0;
 }
 
-h1, h3 {
+h1, h2, h4 {
   text-align: center;
   margin: 7px 0;
+}
+
+h3 {
+  background-color: #4a6285;
+  color: white;
+  margin: 5px 0;
+  padding: 5px;
+  text-align: center;
+}
+
+h3:hover {
+  background-color: #1b2330;
+  cursor: pointer;
 }
 
 .start {
@@ -31,4 +45,27 @@ h1, h3 {
   width: 80vw;
   padding: 8px;
   margin: auto;
+}
+
+.quiz {
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+}
+
+.submitbtn {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 5px;
+  background-color: #79a0da;
+  border-radius: 5px;
+}
+
+.submitbtn:hover {
+  background-color: #afc6e9;
+  cursor: pointer;
+}
+
+.theScore {
+  color: #F32124;
 }

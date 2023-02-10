@@ -4,25 +4,25 @@ export default function Q(props) {
     let answers = [
         {
             id: props.id,
-            answer: props.correct,
+            answer: decodeURIComponent(props.correct),
             isSelected: false,
             isCorrect: true
         },
         {
             id: props.id,
-            answer: props.incorrects[0],
+            answer: decodeURIComponent(props.incorrects[0]),
             isSelected: false,
             isCorrect: false
         },
         {
             id: props.id,
-            answer: props.incorrects[1],
+            answer: decodeURIComponent(props.incorrects[1]),
             isSelected: false,
             isCorrect: false
         },
         {
             id: props.id,
-            answer: props.incorrects[2],
+            answer: decodeURIComponent(props.incorrects[2]),
             isSelected: false,
             isCorrect: false
         }
@@ -74,21 +74,21 @@ export default function Q(props) {
 
     return (
         <div className="q">
-            <h2>{props.question}</h2> 
+            <h2>{decodeURIComponent(props.question)}</h2> 
             <h3 style={{
-                backgroundColor: theQ[0].isSelected && 'red'
+                backgroundColor: theQ[0].isSelected && '#1b2330'
               }}
             onClick={select}>{theQ[0].answer}</h3>
             <h3 style={{
-                backgroundColor: theQ[1].isSelected && 'red'
+                backgroundColor: theQ[1].isSelected && '#1b2330'
               }}
             onClick={select}>{theQ[1].answer}</h3>
             <h3 style={{
-                backgroundColor: theQ[2].isSelected && 'red'
+                backgroundColor: theQ[2].isSelected && '#1b2330'
               }}
             onClick={select}>{theQ[2].answer}</h3>
             <h3 style={{
-                backgroundColor: theQ[3].isSelected && 'red'
+                backgroundColor: theQ[3].isSelected && '#1b2330'
               }}
             onClick={select}>{theQ[3].answer}</h3>
             
