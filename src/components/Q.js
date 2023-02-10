@@ -3,21 +3,25 @@ import React from "react";
 export default function Q(props) {
     let answers = [
         {
+            id: props.id,
             answer: props.correct,
             isSelected: false,
             isCorrect: true
         },
         {
+            id: props.id,
             answer: props.incorrects[0],
             isSelected: false,
             isCorrect: false
         },
         {
+            id: props.id,
             answer: props.incorrects[1],
             isSelected: false,
             isCorrect: false
         },
         {
+            id: props.id,
             answer: props.incorrects[2],
             isSelected: false,
             isCorrect: false
@@ -28,7 +32,6 @@ export default function Q(props) {
     const [theQ, setTheQ] = React.useState(answers)
 
     function select(event) {
-
         const makeFalse = theQ.map(it => {
             if(it.isSelected) {
                 return {...it, isSelected: false}
@@ -39,6 +42,7 @@ export default function Q(props) {
 
         const text = event.target.textContent
         const t = theQ.filter(a => a.answer === text)
+        //console.log(props.choices)
         const newArr = makeFalse.map(it => {
             if(it === t[0]) {
                 return {...it, isSelected: true}
@@ -46,12 +50,31 @@ export default function Q(props) {
                 return it
             }
         })
+
+        let arr = [...props.choices]
+        for(let i = 0; i < arr.length; i++) {
+            if(arr[i].id === t[0].id) {
+                arr.splice(i, 1)
+                //props.setChoices(arr)
+            }
+        }
+        console.log(arr)
+      
+        props.setChoices([
+            ...arr,
+            {
+                id: t[0].id,
+                answer: t[0].answer,
+                isSelected: true,
+                isCorrect: t[0].isCorrect
+            }
+        ])
         setTheQ(newArr)
-        console.log(t)
     }
+
     return (
         <div className="q">
-            <h2>{props.question}</h2>
+            <h2>{props.question}</h2> 
             <h3 style={{
                 backgroundColor: theQ[0].isSelected && 'red'
               }}
